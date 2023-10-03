@@ -1,6 +1,6 @@
 class CRMApplication:
     def __init__(self):
-        #  ユーザーリストを入れる
+        #  ユーザーリスト
         self.users = [{"name": "Bob", "age": 15}, {"name": "Tom", "age": 57}, {"name": "Ken", "age": 73}]
 
     def show_users(self):
@@ -9,7 +9,7 @@ class CRMApplication:
             print(f"Name: {user['name']} Age: {user['age']}")
 
     def add_user(self):
-        #  新しいユーザーを追加するメソッド
+        #  新しいユーザーを追加する
         name = input("New user name > ")
         age = int(input("New user age > "))
         self.users.append({"name": name, "age": age})
