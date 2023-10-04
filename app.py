@@ -34,8 +34,8 @@ def add_user():
 
 
 def main():
-    add_initial_users()  # 初期ユーザーをデータベースに追加
-    show_menu()  # アプリケーション起動時にメニューを表示
+    add_initial_users()  # 初期ユーザーをデータベースに追加 else後 show_menu削除
+    show_menu()  # アプリケーション起動時にメニューを表示 
     while True:
         command = input("\nYour command > ").upper()
         if command == "S":
@@ -47,7 +47,6 @@ def main():
             break
         else:
             print(f"{command}: command not found")
-        show_menu()  # コマンド実行後に再度メニューを表示
 
 
 if __name__ == "__main__":
