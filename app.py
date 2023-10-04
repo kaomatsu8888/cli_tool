@@ -6,9 +6,9 @@ initial_users = [{"name": "Bob", "age": 15}, {"name": "Tom", "age": 57}, {"name"
 def add_initial_users():
     # 初期のユーザーリストをデータベースに追加
     for user_data in initial_users:
-        User.add_user(name=user_data["name"], defaults={"age": user_data["age"]})
-        # if created:
-        #     print(f"Added initial user: {user.name}")
+        user, created = User.get_or_create(name=user_data["name"], defaults={"age": user_data["age"]})
+        if created:
+            print(f"Added initial user: {user.name}")
 
 
 def show_menu():
@@ -34,8 +34,8 @@ def add_user():
 
 
 def main():
-    show_menu()  # アプリケーション起動時にメニューを表示
     add_initial_users()  # 初期ユーザーをデータベースに追加
+    show_menu()  # アプリケーション起動時にメニューを表示
     while True:
         command = input("\nYour command > ").upper()
         if command == "S":
